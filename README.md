@@ -1,6 +1,28 @@
 cpp-pointers-playground
 =======================
+### Swap
+```cpp
+void swap(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
 
+#include <iostream>
+
+int main() {
+    int a = 3;
+    int b = 4;
+
+    std::cout << a << " " << b << std::endl;
+    
+    swap(&a, &b);
+
+    std::cout << a << " " << b << std::endl;
+    return 0;
+}
+```
 ### TODOs
 - [**Passing By Reference To Const in C++ | QuantStart**](https://www.quantstart.com/articles/Passing-By-Reference-To-Const-in-C/)
 - [数组指针、函数指针和尾置返回类型 - ddev - 博客园](https://www.cnblogs.com/the-capricornus/p/6066379.html)
