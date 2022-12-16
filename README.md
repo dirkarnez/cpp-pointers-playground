@@ -25,6 +25,7 @@ struct D
     *b = temp;
 }
 
+// WIP
 void swapWIP(int** a, int** b) {
     int* temp = *a;
     *a = *b;
@@ -32,6 +33,7 @@ void swapWIP(int** a, int** b) {
     // they're swapped!
 }
 
+// WIP
 template<typename T>
 void swap(T&& x, T&& y)
 {    
@@ -75,3 +77,4 @@ int main() {
 - [**Rvalue Reference Quick Look**](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2027.html#Move_Semantics)
 - [c++ - What is std::move(), and when should it be used? - Stack Overflow](https://stackoverflow.com/questions/3413470/what-is-stdmove-and-when-should-it-be-used?rq=1)
 - [C++ 值传递、指针传递、引用传递详解 - 代码先锋网](https://www.codeleading.com/article/39855142194/#google_vignette)
+- [c++ - How does the standard library implement std::swap? - Stack Overflow](https://stackoverflow.com/questions/25286544/how-does-the-standard-library-implement-stdswap)
