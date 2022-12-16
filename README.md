@@ -2,24 +2,69 @@ cpp-pointers-playground
 =======================
 ### Swap
 ```cpp
-void swap(int *a, int *b)
+#include <cassert>
+#include <cstdio>
+#include <fstream>
+#include <iostream>
+#include <memory>
+#include <stdexcept>
+ 
+#include <type_traits>
+
+struct D 
 {
+    D() { std::cout << "D::D\n"; }
+    ~D() { std::cout << "D::~D\n"; }
+};
+ void swap(int *a, int *b)
+{
+    // set NULL to break this program
+    a = NULL;
     int temp = *a;
     *a = *b;
     *b = temp;
 }
 
+void swapWIP(int** a, int** b) {
+    int* temp = *a;
+    *a = *b;
+    *b = temp;
+    // they're swapped!
+}
+
+template<typename T>
+void swap(T&& x, T&& y)
+{    
+    T tmp(std::move(x)); 
+    x = std::move(y); 
+    y = std::move(tmp);
+}
+
 #include <iostream>
+#include <memory>
 
 int main() {
     int a = 3;
     int b = 4;
 
+    int* aptr = &a;
+    int* bptr = &b;
     std::cout << a << " " << b << std::endl;
     
-    swap(&a, &b);
+    //swap(&a, &b);
 
-    std::cout << a << " " << b << std::endl;
+    //std::cout << "!!!" << a << " " << b << std::endl;
+
+
+    std::unique_ptr<int> c = std::make_unique<int>(5);
+    std::unique_ptr<int> d = std::make_unique<int>(6);
+
+    std::cout << *c << " " << *d << std::endl;
+
+    swap(std::move(c), std::move(d));
+
+    std::cout << *c << " " << *d << std::endl;
+
     return 0;
 }
 ```
