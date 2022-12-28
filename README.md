@@ -16,7 +16,9 @@ struct D
     D() { std::cout << "D::D\n"; }
     ~D() { std::cout << "D::~D\n"; }
 };
- void swap(int *a, int *b)
+
+
+void swapAsInTextbook(int *a, int *b)
 {
     // set NULL to break this program
     a = NULL;
@@ -26,16 +28,34 @@ struct D
 }
 
 // WIP
-void swapWIP(int** a, int** b) {
-    int* temp = *a;
-    *a = *b;
-    *b = temp;
+void swapUsingDoublePointer(int** adouble_ptr, int** bdouble_ptr) {
+    int** temp = adouble_ptr;
+    int** tt = temp;
+    *adouble_ptr = *bdouble_ptr;
+
+
+  
+    
+    // int* aptr = *adouble_ptr;  //0x3
+    // int* bptr = *bdouble_ptr; //0x4
+
+    // *adouble_ptr = *bdouble_ptr;
+
+
+
+
+    //bptr = **temp;
+    
+
+    // int* temp = *a;
+    // *a = *b;
+    // *b = temp;
     // they're swapped!
 }
 
 // WIP
 template<typename T>
-void swap(T&& x, T&& y)
+void swapUsingMove(T&& x, T&& y)
 {    
     T tmp(std::move(x)); 
     x = std::move(y); 
@@ -53,7 +73,7 @@ int main() {
     int* bptr = &b;
     std::cout << a << " " << b << std::endl;
     
-    //swap(&a, &b);
+    //swapAsInTextbook(&a, &b);
 
     //std::cout << "!!!" << a << " " << b << std::endl;
 
@@ -63,13 +83,23 @@ int main() {
 
     std::cout << *c << " " << *d << std::endl;
 
-    swap(std::move(c), std::move(d));
+    swapUsingMove(std::move(c), std::move(d));
 
     std::cout << *c << " " << *d << std::endl;
 
+    int** adouble_ptr = &aptr;
+    int** bdouble_ptr = &bptr;
+
+    swapUsingDoublePointer(adouble_ptr, bdouble_ptr);
+
+    std::cout << a << " " << b << std::endl;
     return 0;
 }
 ```
+
+### Notes
+- Swapping can not work using double pointer (pointer is a reactive thing)
+
 ### TODOs
 - [**Passing By Reference To Const in C++ | QuantStart**](https://www.quantstart.com/articles/Passing-By-Reference-To-Const-in-C/)
 - [数组指针、函数指针和尾置返回类型 - ddev - 博客园](https://www.cnblogs.com/the-capricornus/p/6066379.html)
