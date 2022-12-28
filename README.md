@@ -98,7 +98,7 @@ int main() {
 ```
 
 ### Notes
-- Swapping can not work using double pointer (pointer is a reactive thing)
+- Swapping can not work by solely using double pointers (pointer is a reactive thing + pointer as function parameter = copying address values)
 
 ### TODOs
 - [**Passing By Reference To Const in C++ | QuantStart**](https://www.quantstart.com/articles/Passing-By-Reference-To-Const-in-C/)
