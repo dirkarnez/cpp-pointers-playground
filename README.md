@@ -99,6 +99,8 @@ int main() {
 
 ### Notes
 - Swapping can not work by solely using double pointers (pointer is a reactive thing + pointer as function parameter = copying address values)
+ - There's why we need a temp in primitive integer type, or
+ - in C++ there is rvalue for move semantics
 
 ### TODOs
 - [**Passing By Reference To Const in C++ | QuantStart**](https://www.quantstart.com/articles/Passing-By-Reference-To-Const-in-C/)
